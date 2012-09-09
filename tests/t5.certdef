@@ -1,0 +1,10 @@
+-- certificate test 1
+
+mytype: int32;
+certificateHeader: class {
+
+	size: 		uint64,range=200;
+	version:	uint32;
+	myfield:	vector of char;
+	hisfield:	mytype, range=1;
+};

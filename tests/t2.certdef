@@ -1,0 +1,24 @@
+-- certificate test 2
+
+hashType:	uint512;
+publicKeyType:	uint2048;
+signatureType:	uint2048;
+
+--date types 
+dateType:	uint128;
+recentDateType: dateType, range=YEAR(1980)..YEAR(2020);
+revocationServerType: vector of char;
+
+certificateHeader: class {
+
+	size: 		uint64;
+	version:	uint32, range=1;
+	syntaxHash:	hashType;
+	semanticsHash:	hashType;
+	publicKey:	publicKeyType;
+	validFrom:	recentDateType;
+	validTo:	recentDateType;
+	revocationServer: revocationServerType;
+	revocationServerPublicKey: publicKeyType;
+	signature:	signatureType;
+	};

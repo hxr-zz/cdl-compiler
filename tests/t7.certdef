@@ -1,0 +1,37 @@
+currencyUnits:	enum { USD, EURO, YUAN };
+
+currency:	class { --any currency 
+			amount: float32, accuracy=.01;
+			units: currencyUnits;
+		};
+
+usDollarType:	currency class { --a currency of USD
+			amount: accuracy=.001;
+			units:	range=USD;
+		};
+
+pettyCash:	usDollarType class { --dollar amounts 
+			amount: range= >0..100;
+		};
+
+
+
+telephoneNumber: decimalField10;
+ipV4number:	uint32;
+height:		float32;
+
+titleType:	enum{ sir, lord, duke };
+
+nameType: class {
+		lastName: char[100];
+		firstName: char[50];
+		middleInitial: char;
+		title:	titleType;
+};
+
+--certificate definition
+certName: certificate {
+	name: nameType;
+	amount: currency;
+	privatekey: uint128;
+}

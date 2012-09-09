@@ -1,0 +1,29 @@
+-- Certificate Header and Trailer Version #1
+
+hashType:	int512;
+publicKeyType:	int128;
+signatureType:	int128;
+
+--date types 
+dateType:	date;
+recentDateType: dateType, range=YEAR(1980)..YEAR(2020);
+revocationServerType: vector of char;
+
+CertificateHeader: class {
+
+	size: 		int4;
+	version:	int32, range=1;
+	publicKey:	publicKeyType;
+	validFrom:	recentDateType;
+	validTo:	recentDateType;
+	revocationServer: revocationServerType;
+	revocationServerPublicKey: publicKeyType;
+};
+
+CertificateTrailer : class {
+
+	syntaxHash:	hashType;
+	semanticHash:	hashType;
+	signature:	signatureType;
+};
+

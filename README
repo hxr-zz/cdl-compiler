@@ -1,0 +1,69 @@
+Welcome to sayAnything CDL compiler.
+------------------------
+
+cdlcc is a compiler for the Certificate Description Language (CDL).
+It generates C++ code from an input CDL source.
+
+* Software requirements
+
+- Flex
+- Bison
+- g++ (Gnu C++ compiler)
+- Google Ctemplate (http://goog-ctemplate.sourceforge.net/)
+
+-- If you are a developer then you need these additional packages
+
+- Gnu Automake
+- Gnu Autoconf
+
+* To install:
+
+$ ./configure
+$ make
+$ sudo make install
+
+* To make a distribution
+
+$ make distcheck
+
+* To make emacs TAGS file(s):
+
+$ make tags
+
+* To uninstall:
+
+$ make uninstall
+
+
+* Usage instructions:
+
+$ cdlcc [-s semantic-definition-file] [-o output-file] [-t code-template-file] INPUT-CDL-FILE
+
+- All command line args are optional. If -o is not present, output will be written to stdout.
+
+- When there is a Certificate definition in the grammar, you MUST supply a semantic-definition-file
+
+- You can supply the location of a code template file. The default is /usr/share/sayAnything/Code.tpl
+
+- INPUT-CDL must conform to the CDL grammar specificatoin.
+
+* EXAMPLE
+
+$ cdlcc -s certName.sem -o certName.cpp certName.certdef
+
+- Will generate a C++ file called certName.cpp
+
+- To compile this file, you need libsayAnything and libcrypto++ installed.
+
+- Compile certName.cpp like this:
+
+$ gcc -c certName.cpp -I/usr/include/sayAnything -lcrypto++ -lsayAnything -o certName.o
+
+
+NOTE:
+vector of vector of T (for any cdl type T) is not supported.
+
+--------
+cdlcc is free software. Please see the file COPYING for details.
+For documentation, please see the files in the doc subdirectory.
+For building and installation instructions please see the INSTALL file.

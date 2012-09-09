@@ -1,0 +1,16 @@
+-*- outline -*-
+
+* Accuracy check
+
+Implement a way to round off given value to the accuracy specified in the CDL.
+
+* Recursive preprocessor
+
+The current preprocessor is naive. It can only expand files once. 
+Flex cannot generate reentrant scanners. So this has to be done iteratively 
+or a third party regular expression library can be used.
+
+* Support for multiple dimensions.
+
+Array and Vector may have to support multiple dimensions in the future.
+

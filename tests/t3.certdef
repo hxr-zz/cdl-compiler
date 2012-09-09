@@ -1,0 +1,17 @@
+currencyUnits:	enum { USD, EURO, YUAN };
+
+currency:	class { --any currency 
+			amount: float32, accuracy=.01;
+			units: currencyUnits;
+		};
+
+usDollarType:	currency class { --a currency of USD
+			amount: accuracy=.001;
+			units:	range=USD;
+			conversionrate: int32, range=1..50; --additional field in derived class
+		};
+
+pettyCash:	usDollarType class { --dollar amounts 
+			amount: range= >0..100;
+		};
+

@@ -1,0 +1,13 @@
+-- certificate test 1
+
+mytype: int32[100];
+dbltype: vector of int32;
+certificateHeader: class {
+
+	size: 		float32[100];
+	version:	uint32, range=1;
+	myfield:	vector of mytype;
+
+	mfld:		vector of dbltype;
+};
+

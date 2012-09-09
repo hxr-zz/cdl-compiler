@@ -1,0 +1,16 @@
+-- Certificate Header and Trailer Version #1
+
+hashType:	int512;
+signatureType:	int128;
+
+CertificateHeader: class {
+
+	version:	int32, range=1;
+};
+
+CertificateTrailer : class {
+
+	syntaxHash:	hashType;
+	semanticHash:	hashType;
+	signature:	signatureType;
+};

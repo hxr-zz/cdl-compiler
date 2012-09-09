@@ -1,0 +1,16 @@
+
+RentalAgreement : certificate
+{
+	rentPerMonth	: int4;
+	index		: int64;
+
+	letter		: char;
+	stock		: float32;
+	stock2		: float64;
+
+	sdate		: date;
+
+	name		: vector of char;
+
+	title		: int32[100];
+};

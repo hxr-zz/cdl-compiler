@@ -1,0 +1,21 @@
+include "version1.certdef"
+include "t3.certdef"
+
+--telephoneNumber: decimalField10;
+ipV4number:	int32;
+height:		float32;
+
+titleType:	enum{ sir, lord, duke };
+
+nameType: class {
+		lastName: char[100];
+		firstName: char[50];
+		middleInitial: char;
+		title:	titleType;
+};
+
+--certificate definition
+certName: certificate {
+	name: nameType;
+	amount: currency;
+};
